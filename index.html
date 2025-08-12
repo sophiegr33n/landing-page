@@ -18,34 +18,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 0; /* no padding to avoid width loss */
+    overflow-x: hidden; /* prevent accidental horizontal scroll */
   }
 
   pre {
     white-space: pre; /* preserve ASCII spacing */
     line-height: 1.2;
     margin: 0;
-    font-size: 16px; /* default for desktop */
+    font-size: 1.28vw; /* fit exactly to widest line */
   }
 
-  /* Tablet scaling */
-  @media (max-width: 768px) {
+  /* Desktop override so it's not tiny on big screens */
+  @media (min-width: 1024px) {
     pre {
-      font-size: 2vw; /* scales font based on viewport width */
-    }
-  }
-
-  /* Mobile scaling */
-  @media (max-width: 480px) {
-    pre {
-      font-size: 2.5vw; /* slightly bigger proportionally for smaller screens */
-    }
-  }
-
-  /* Very small devices */
-  @media (max-width: 360px) {
-    pre {
-      font-size: 3vw;
+      font-size: 16px; /* normal readable size on desktop */
     }
   }
 </style>
