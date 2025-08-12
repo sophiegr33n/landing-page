@@ -15,39 +15,42 @@
     background-color: black;
     color: #00ff00;
     font-family: 'Source Code Pro', monospace;
-  }
-
-  /* Container to handle scroll */
-  .ascii-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     padding: 1rem;
-    overflow: auto; /* allows both horizontal & vertical scroll */
   }
 
   pre {
     white-space: pre; /* preserve ASCII spacing */
     line-height: 1.2;
-    font-size: 16px;
     margin: 0;
+    font-size: 16px; /* default for desktop */
   }
 
-  /* Scale font size down on smaller screens */
+  /* Tablet scaling */
   @media (max-width: 768px) {
-    pre { font-size: 14px; }
+    pre {
+      font-size: 2vw; /* scales font based on viewport width */
+    }
   }
+
+  /* Mobile scaling */
   @media (max-width: 480px) {
-    pre { font-size: 12px; }
+    pre {
+      font-size: 2.5vw; /* slightly bigger proportionally for smaller screens */
+    }
   }
+
+  /* Very small devices */
   @media (max-width: 360px) {
-    pre { font-size: 10px; }
+    pre {
+      font-size: 3vw;
+    }
   }
 </style>
 </head>
 <body>
-<div class="ascii-container">
 <pre>
    .
   /:\
@@ -71,6 +74,5 @@
          `-'                   /                             /        
 ____________________________ /                             /_____________
 </pre>
-</div>
 </body>
 </html>
